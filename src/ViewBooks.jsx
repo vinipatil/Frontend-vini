@@ -12,7 +12,7 @@ function ViewBooks() {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/books');
+        const response = await axios.get('https://backend-vini.onrender.com/books');
         const formattedBooks = response.data.flatMap(publisher =>
           publisher.authors.flatMap(author =>
             author.books.map(book => ({
@@ -50,7 +50,7 @@ function ViewBooks() {
         ...editBook,
         totalCopies: parseInt(editBook.availableCopies) + editBook.purchasedCopies
       };
-      await axios.put(`http://localhost:5000/books/${editBook._id}`, { bookDetails: updatedBook });
+      await axios.put(`https://backend-vini.onrender.com/books/${editBook._id}`, { bookDetails: updatedBook });
       setBooks(books.map((book) => (book._id === editBook._id ? updatedBook : book)));
       setEditMode(null);
     } catch (error) {
@@ -61,7 +61,7 @@ function ViewBooks() {
   const handleRemove = async (bookId) => {
     console.log('Attempting to delete book with ID:', bookId);
     try {
-      const response = await axios.delete(`http://localhost:5000/books/${bookId}`);
+      const response = await axios.delete(`https://backend-vini.onrender.com/books/${bookId}`);
       if (response.status === 200) {
         setBooks(books.filter((book) => book._id !== bookId));
         console.log('Book deleted successfully:', response.data);

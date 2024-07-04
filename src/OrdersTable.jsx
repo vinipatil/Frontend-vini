@@ -9,7 +9,7 @@ const OrdersTable = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const ordersResponse = await axios.get('http://localhost:5000/orders');
+        const ordersResponse = await axios.get('https://backend-vini.onrender.com/orders');
         const ordersData = ordersResponse.data;
 
         // Retrieve wishlist from local storage

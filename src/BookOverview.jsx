@@ -14,7 +14,7 @@ function BookOverview() {
 
   const fetchBooks = async (query = '') => {
     try {
-      const response = await axios.get('http://localhost:5000/books', {
+      const response = await axios.get('https://backend-vini.onrender.com/books', {
         params: { query }
       });
       const formattedBooks = response.data.flatMap(publisher =>

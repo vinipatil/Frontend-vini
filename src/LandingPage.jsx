@@ -18,7 +18,7 @@ function LandingPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/inquiries', formData);
+      await axios.post('https://backend-vini.onrender.com/inquiries', formData);
       alert('Inquiry submitted successfully!');
       setFormData({
         name: '',

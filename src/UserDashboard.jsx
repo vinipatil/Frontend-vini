@@ -18,7 +18,7 @@ function UserDashboard() {
 
   const fetchBooks = async (query = '') => {
     try {
-      const response = await axios.get('http://localhost:5000/books', {
+      const response = await axios.get('https://backend-vini.onrender.com/books', {
         params: { query }
       });
       const formattedBooks = response.data.flatMap(publisher =>
@@ -81,7 +81,7 @@ function UserDashboard() {
     const email = localStorage.getItem('email'); // Assuming user's email is stored in localStorage after login
     const quantity = parseInt(document.getElementById("quantity").value, 10);
     try {
-      const response = await axios.post(`http://localhost:5000/purchase/${bookId}`, {
+      const response = await axios.post(`https://backend-vini.onrender.com/purchase/${bookId}`, {
         email,
         quantity,
       });
@@ -115,7 +115,7 @@ function UserDashboard() {
     const email = localStorage.getItem('email');
     const loginIndex = localStorage.getItem('loginIndex');
     try {
-      await axios.post('http://localhost:5000/logout', { email, loginIndex });
+      await axios.post('https://backend-vini.onrender.com/logout', { email, loginIndex });
       localStorage.removeItem('email');
       localStorage.removeItem('loginIndex');
       localStorage.removeItem('wishlist');

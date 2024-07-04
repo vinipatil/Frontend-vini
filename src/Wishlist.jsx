@@ -44,7 +44,7 @@ function Wishlist() {
   const confirmBuy = async (book) => {
     try {
       const userId = localStorage.getItem('userId'); 
-      const response = await axios.put(`http://localhost:5000/books/${book._id}/buy`, { userId, quantity });
+      const response = await axios.put(`https://backend-vini.onrender.com/books/${book._id}/buy`, { userId, quantity });
       if (response.status === 200) {
         setBookName(book.bookName);
         setShowThankYouModal(true);
@@ -80,7 +80,7 @@ function Wishlist() {
     const email = localStorage.getItem('email');
     const loginIndex = localStorage.getItem('loginIndex');
     try {
-      await axios.post('http://localhost:5000/logout', { email, loginIndex });
+      await axios.post('https://backend-vini.onrender.com/logout', { email, loginIndex });
       localStorage.removeItem('email');
       localStorage.removeItem('loginIndex');
       localStorage.removeItem('wishlist');

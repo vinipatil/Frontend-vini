@@ -8,7 +8,7 @@ function Inquiries() {
   useEffect(() => {
     const fetchInquiries = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/inquiries');
+        const response = await axios.get('https://backend-vini.onrender.com/inquiries');
         setInquiries(response.data);
       } catch (error) {
         console.error('Error fetching inquiries:', error);

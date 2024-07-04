@@ -26,7 +26,7 @@ function AddBook() {
         price: parseFloat(price), 
       };
 
-      const response = await axios.post('http://localhost:5000/books', {
+      const response = await axios.post('https://backend-vini.onrender.com/books', {
         publisherName: publisherName,
         authorName: authorName,
         bookDetails: bookDetails,

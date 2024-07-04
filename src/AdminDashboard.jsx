@@ -15,7 +15,7 @@ function AdminDashboard() {
   useEffect(() => {
     const fetchUserLogs = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/user-logs');
+        const response = await axios.get('https://backend-vini.onrender.com/user-logs');
         setUsers(response.data);
       } catch (error) {
         console.error(error);
@@ -28,7 +28,7 @@ function AdminDashboard() {
     const email = localStorage.getItem('email');
     const loginIndex = localStorage.getItem('loginIndex');
     try {
-      const response = await axios.post('http://localhost:5000/logout', { email, loginIndex });
+      const response = await axios.post('https://backend-vini.onrender.com/logout', { email, loginIndex });
       setMessage(response.data.message);
       localStorage.removeItem('email');
       localStorage.removeItem('loginIndex');
@@ -40,7 +40,7 @@ function AdminDashboard() {
 
   const handleRemove = async (userId, loginIndex) => {
     try {
-      await axios.delete(`http://localhost:5000/remove-user-login/${userId}/${loginIndex}`);
+      await axios.delete(`https://backend-vini.onrender.com/remove-user-login/${userId}/${loginIndex}`);
       const updatedUsers = users.map(user => {
         if (user._id === userId) {
           user.logins = user.logins.filter((_, i) => i !== loginIndex);
@@ -68,7 +68,7 @@ function AdminDashboard() {
 
   const handleSave = async () => {
     try {
-      await axios.put(`http://localhost:5000/update-user/${editUser._id}`, editUser);
+      await axios.put(`https://backend-vini.onrender.com/update-user/${editUser._id}`, editUser);
       setUsers(users.map(user => (user._id === editUser._id ? editUser : user)));
       setEditMode(null);
       setMessage('User updated successfully');

@@ -31,7 +31,7 @@ function App() {
 
   const handleBuy = async (book) => {
     try {
-      const response = await axios.put(`http://localhost:5000/books/${book._id}/buy`);
+      const response = await axios.put(`https://backend-vini.onrender.com/books/${book._id}/buy`);
       if (response.status === 200) {
         const updatedBooks = wishlist.map((item) => {
           if (item._id === book._id) {

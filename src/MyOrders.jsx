@@ -11,7 +11,7 @@ const MyOrders = () => {
       const email = localStorage.getItem('email'); // Assuming user's email is stored in localStorage after login
       console.log('Fetching orders for email:', email); // Debug log
       try {
-        const response = await axios.get('http://localhost:5000/user-orders', {
+        const response = await axios.get('https://backend-vini.onrender.com/user-orders', {
           params: { email }
         });
         console.log('Orders fetched:', response.data); // Debug log

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import UserNavbar from './UserNavbar'; // Adjust the path as per your file structure
+import UserNavbar from './UserNavbar'; 
 
 function Feedback() {
   const [name, setName] = useState('');
@@ -13,7 +13,7 @@ function Feedback() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/feedback', { name, email, phone, feedback });
+      const response = await axios.post('https://backend-vini.onrender.com/feedback', { name, email, phone, feedback });
       setMessage(response.data.message);
       setName('');
       setEmail('');

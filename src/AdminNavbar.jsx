@@ -9,7 +9,7 @@ function AdminNavbar() {
     const email = localStorage.getItem('email');
     const loginIndex = localStorage.getItem('loginIndex');
     try {
-      await axios.post('http://localhost:5000/logout', { email, loginIndex });
+      await axios.post('https://backend-vini.onrender.com/logout', { email, loginIndex });
       localStorage.removeItem('email');
       localStorage.removeItem('loginIndex');
       navigate('/login');
