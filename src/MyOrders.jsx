@@ -23,19 +23,8 @@ const MyOrders = () => {
     fetchOrders();
   }, []);
 
-  const handleLogout = async () => {
-    const email = localStorage.getItem('email');
-    const loginIndex = localStorage.getItem('loginIndex');
-    try {
-      await axios.post('https://backend-vini.onrender.com/logout', { email, loginIndex });
-      localStorage.removeItem('email');
-      localStorage.removeItem('loginIndex');
-      localStorage.removeItem('wishlist');
-      setWishlist([]);
-      window.location.href = '/login';
-    } catch (error) {
-      console.error(error);
-    }
+  const handleLogout = () => {
+    console.log('Logging out...');
   };
 
   return (
